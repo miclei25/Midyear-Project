@@ -18,4 +18,8 @@ class GameManager(object):
     def setup_gameGUI(self):
         self.root.title ("2048")
         self.root.geometry ("555x500")
+<<<<<<< HEAD
         self.current_screen = 
+=======
+        
+>>>>>>> ea401ce86b1307097b4e2ba88232ce5ce16f389c
