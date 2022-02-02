@@ -1,8 +1,21 @@
 from tkinter import *
-import tkinter 
+from OpeningGUI import Screen_Opening
 
 class GameManager(object):
 
     def __init__(self):
-        self.root = tkinter.Tk()
+        self.root = Tk()
     
+    def setup_openingscreen(self):
+        self.root.title ("2048")
+        self.root.geometry ("555x500")
+        self.current_screen = Screen_Opening (master = self.root, callback_on_play = self.onclose_openingscreen)
+
+    def onclose_openingscreen(self):
+        self.current_screen.destory()
+        self.setup_gameGUI()
+
+    def setup_gameGUI(self):
+        self.root.title ("2048")
+        self.root.geometry ("555x500")
+        
