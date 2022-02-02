@@ -5,4 +5,8 @@ class GameManager(object):
 
     def __init__(self):
         self.root = tkinter.Tk()
+
+  
+def main():
+    pass
     
