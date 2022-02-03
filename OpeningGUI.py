@@ -11,6 +11,7 @@ class Screen_Opening(Frame):
 
     def create_widgets(self):
 
+        #title
         Label(self, text = "").grid(row = 0)
         Label(self, text = "").grid(row = 1)
         Label(self, text = "").grid(row = 2)
