@@ -1,5 +1,6 @@
 from tkinter import *
 from OpeningGUI import Screen_Opening
+from gameGUI import Screen_Game
 
 class GameManager(object):
 
@@ -24,3 +25,4 @@ def main():
     game = GameManager()
     game.setup_openingscreen()
     game.root.mainloop()
+main()

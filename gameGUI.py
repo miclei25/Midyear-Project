@@ -1,4 +1,10 @@
 from tkinter import *
 
-class Screen_Game(Frame):
-    pass
+class Game_Screen(Frame):
+
+    def __init__(self):
+        pass
+
+    def create_widgets(self):
+        Label(self, text = "2048", font = "Georgia 45 bold", fg = "Hot Pink").grid(row = 3, column = 1)
+        Label(self, text = "").grid(row = 4)
