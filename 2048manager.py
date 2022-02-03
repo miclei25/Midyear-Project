@@ -24,3 +24,10 @@ class GameManager(object):
     def onclose_gameGUI(self):
         self.current_screen.destroy()
         self.setup_openingscreen()
+
+def main():
+    game = GameManager()
+    game.setup_openingscreen()
+    game.root.mainloop()
+
+main()
