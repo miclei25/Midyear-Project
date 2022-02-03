@@ -6,6 +6,7 @@ class GameManager(object):
 
     def __init__(self):
         self.root = Tk()
+        self.current_screen = None
     
     def setup_openingscreen(self):
         self.root.title ("2048")
@@ -29,5 +30,4 @@ def main():
     game = GameManager()
     game.setup_openingscreen()
     game.root.mainloop()
-
 main()
