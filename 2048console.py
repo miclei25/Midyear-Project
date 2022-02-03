@@ -20,3 +20,15 @@ class Grid():
             col = random.randint(0,3)
         
         grid[row[col]] = 2
+    
+    def move_left(self, grid):
+        pass
+
+    def move_right(self, grid):
+        pass
+
+    def move_up(self, grid):
+        pass
+
+    def move_down(self, grid):
+        pass

@@ -6,5 +6,5 @@ class Game_Screen(Frame):
         pass
 
     def create_widgets(self):
-        Label(self, text = "2048", font = "Georgia 45 bold", fg = "Hot Pink").grid(row = 3, column = 1)
+        Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 3, column = 1)
         Label(self, text = "").grid(row = 4)
