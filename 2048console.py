@@ -1,20 +1,22 @@
 from tkinter import *
 import random
 
-def start_game():
-    grid = []
-    for n in range(4):
-        grid.append([0] * 4)
-    
-    add_number(grid)
-    add_number(grid)
+class Grid():
 
-def add_number(grid):
-    row = random.randint(0,3)
-    col = random.randint(0,3)
+    def __init__(self):
+        grid = []
+        for n in range(4):
+            grid.append([None] * 4)
+        
+        Grid.add_number(grid)
+        Grid.add_number(grid)
 
-    while 0 not in grid[row]:
+    def add_number(self, grid):
         row = random.randint(0,3)
         col = random.randint(0,3)
-    
-    grid[row[col]] = 2
+
+        while grid[row[col]] != 0:
+            row = random.randint(0,3)
+            col = random.randint(0,3)
+        
+        grid[row[col]] = 2
