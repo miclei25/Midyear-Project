@@ -19,20 +19,10 @@ class GameManager(object):
     def setup_gameGUI(self):
         self.root.title ("2048")
         self.root.geometry ("555x500")
-<<<<<<< HEAD
-        
-=======
         self.current_screen = Game_Screen()
->>>>>>> 83561cea40e2b13baa00d6ca5ac4ad984408cdca
 
 def main():
     game = GameManager()
     game.setup_openingscreen()
-<<<<<<< HEAD
     game.root.mainloop()
-=======
-    game.onclose_openingscreen()
-    game.setup_gameGUI()
-
->>>>>>> 83561cea40e2b13baa00d6ca5ac4ad984408cdca
 main()
