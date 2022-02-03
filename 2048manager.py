@@ -1,6 +1,6 @@
 from tkinter import *
 from OpeningGUI import Screen_Opening
-from gameGUI import Screen_Game
+from gameGUI import Game_Screen
 
 class GameManager(object):
 
@@ -19,4 +19,12 @@ class GameManager(object):
     def setup_gameGUI(self):
         self.root.title ("2048")
         self.root.geometry ("555x500")
-        self.current_screen = Screen_Game (master = self.root)
+        self.current_screen = Game_Screen()
+
+def main():
+    game = GameManager()
+    game.setup_openingscreen()
+    game.onclose_openingscreen()
+    game.setup_gameGUI()
+
+main()
