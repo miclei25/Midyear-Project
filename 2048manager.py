@@ -6,6 +6,7 @@ class GameManager(object):
 
     def __init__(self):
         self.root = Tk()
+        self.current_screen = None
     
     def setup_openingscreen(self):
         self.root.title ("2048")
