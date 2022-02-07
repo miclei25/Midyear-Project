@@ -1,5 +1,5 @@
 from Model import Grid
 
-grid = Grid()
+thing = Grid()
 
-print(grid.grid)
+print(thing.grid)
