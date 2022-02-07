@@ -20,7 +20,7 @@ class GameManager(object):
     def setup_gameGUI(self):
         self.root.title ("2048")
         self.root.geometry ("555x500")
-        self.current_screen = Game_Screen (master = self.root, callback_on_exit = self.onclose_gameGUI)
+        self.current_screen = Game_Screen (master = self.root, callback_on_exit = self.onclose_gameGUI())
 
     def onclose_gameGUI(self):
         self.current_screen.destroy()
