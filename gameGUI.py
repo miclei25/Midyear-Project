@@ -14,5 +14,7 @@ class Game_Screen(Frame):
         Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 0, column = 1)
         Label(self, text = "").grid(row = 1)
 
+        
+
     def selected_exit(self):
         self.callback_on_exit()
