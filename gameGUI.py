@@ -12,9 +12,10 @@ class Game_Screen(Frame):
 
     def create_widgets(self):
         Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 0, column = 1)
-        Label(self, text = "").grid(row = 1)
+        Label(self, text = "\n\n\n\n\n\n\n").grid(row = 1)
 
-        
+        Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.callback_on_exit
+        ).grid(row = 2, column = 1)
 
     def selected_exit(self):
         self.callback_on_exit()
