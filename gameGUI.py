@@ -11,6 +11,7 @@ class Game_Screen(Frame):
         self.grid()
 
     def create_widgets(self):
+        
         Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 0, column = 1)
         Label(self, text = "\n\n\n\n\n\n\n").grid(row = 1)
 
