@@ -23,316 +23,40 @@ class Grid():
     
     def move_left(self):
 
-        if self.grid[0][3] != None:
-            if self.grid[0][2] != None:
-                if self.grid[0][1] != None:
-                    if self.grid[0][0] != None:
-                        pass
+        for n in range(4):
+            if self.grid[n][3] != None:
+                if self.grid[n][2] != None:
+                    if self.grid[n][1] != None:
+                        if self.grid[n][0] != None:
+                            pass
+                            self.add_number()
+                        else:
+                            self.grid[n][0] = self.grid[n][1]
+                            self.grid[n][1] = self.grid[n][2]
+                            self.grid[n][2] = self.grid[n][3]
+                            self.grid[n][3] = None
+                            self.add_number()
                     else:
-                        self.grid[0][0] = self.grid[0][1]
-                        self.grid[0][1] = self.grid[0][2]
-                        self.grid[0][2] = self.grid[0][3]
-                        self.grid[0][3] = None
+                        self.grid[n][1] = self.grid[n][2]
+                        self.grid[n][2] = self.grid[n][3]
+                        self.grid[n][3] = None
+                        self.add_number()
                 else:
-                    self.grid[0][1] = self.grid[0][2]
-                    self.grid[0][2] = self.grid[0][3]
-                    self.grid[0][3] = None
+                    self.grid[n][2] = self.grid[n][3]
+                    self.grid[n][3] = None
+                    self.add_number()
             else:
-                self.grid[0][2] = self.grid[0][3]
-                self.grid[0][3] = None
-        else:
-            pass
-        if self.grid[1][3] != None:
-            if self.grid[1][2] != None:
-                if self.grid[1][1] != None:
-                    if self.grid[1][0] != None:
-                        pass
-                    else:
-                        self.grid[1][0] = self.grid[1][1]
-                        self.grid[1][1] = self.grid[1][2]
-                        self.grid[1][2] = self.grid[1][3]
-                        self.grid[1][3] = None
-                else:
-                    self.grid[1][1] = self.grid[1][2]
-                    self.grid[1][2] = self.grid[1][3]
-                    self.grid[1][3] = None
-            else:
-                self.grid[1][2] = self.grid[1][3]
-                self.grid[1][3] = None
-        else:
-            pass
-        if self.grid[2][3] != None:
-            if self.grid[2][2] != None:
-                if self.grid[2][1] != None:
-                    if self.grid[2][0] != None:
-                        pass
-                    else:
-                        self.grid[2][0] = self.grid[2][1]
-                        self.grid[2][1] = self.grid[2][2]
-                        self.grid[2][2] = self.grid[2][3]
-                        self.grid[2][3] = None
-                else:
-                    self.grid[2][1] = self.grid[2][2]
-                    self.grid[2][2] = self.grid[2][3]
-                    self.grid[2][3] = None
-            else:
-                self.grid[2][2] = self.grid[2][3]
-                self.grid[2][3] = None
-        else:
-            pass
-        if self.grid[3][3] != None:
-            if self.grid[3][2] != None:
-                if self.grid[3][1] != None:
-                    if self.grid[3][0] != None:
-                        pass
-                    else:
-                        self.grid[3][0] = self.grid[3][1]
-                        self.grid[3][1] = self.grid[3][2]
-                        self.grid[3][2] = self.grid[3][3]
-                        self.grid[3][3] = None
-                else:
-                    self.grid[3][1] = self.grid[3][2]
-                    self.grid[3][2] = self.grid[3][3]
-                    self.grid[3][3] = None
-            else:
-                self.grid[3][2] = self.grid[3][3]
-                self.grid[3][3] = None
-        else:
-            pass
+                pass
+                self.add_number()
 
     def move_right(self):
         
-        if self.grid[0][3] != None:
-            if self.grid[0][2] != None:
-                if self.grid[0][1] != None:
-                    if self.grid[0][0] != None:
-                        pass
-                    else:
-                        self.grid[0][0] = self.grid[0][1]
-                        self.grid[0][1] = self.grid[0][2]
-                        self.grid[0][2] = self.grid[0][3]
-                        self.grid[0][3] = None
-                else:
-                    self.grid[0][1] = self.grid[0][2]
-                    self.grid[0][2] = self.grid[0][3]
-                    self.grid[0][3] = None
-            else:
-                self.grid[0][2] = self.grid[0][3]
-                self.grid[0][3] = None
-        else:
-            pass
-        if self.grid[1][3] != None:
-            if self.grid[1][2] != None:
-                if self.grid[1][1] != None:
-                    if self.grid[1][0] != None:
-                        pass
-                    else:
-                        self.grid[1][0] = self.grid[1][1]
-                        self.grid[1][1] = self.grid[1][2]
-                        self.grid[1][2] = self.grid[1][3]
-                        self.grid[1][3] = None
-                else:
-                    self.grid[1][1] = self.grid[1][2]
-                    self.grid[1][2] = self.grid[1][3]
-                    self.grid[1][3] = None
-            else:
-                self.grid[1][2] = self.grid[1][3]
-                self.grid[1][3] = None
-        else:
-            pass
-        if self.grid[2][3] != None:
-            if self.grid[2][2] != None:
-                if self.grid[2][1] != None:
-                    if self.grid[2][0] != None:
-                        pass
-                    else:
-                        self.grid[2][0] = self.grid[2][1]
-                        self.grid[2][1] = self.grid[2][2]
-                        self.grid[2][2] = self.grid[2][3]
-                        self.grid[2][3] = None
-                else:
-                    self.grid[2][1] = self.grid[2][2]
-                    self.grid[2][2] = self.grid[2][3]
-                    self.grid[2][3] = None
-            else:
-                self.grid[2][2] = self.grid[2][3]
-                self.grid[2][3] = None
-        else:
-            pass
-        if self.grid[3][3] != None:
-            if self.grid[3][2] != None:
-                if self.grid[3][1] != None:
-                    if self.grid[3][0] != None:
-                        pass
-                    else:
-                        self.grid[3][0] = self.grid[3][1]
-                        self.grid[3][1] = self.grid[3][2]
-                        self.grid[3][2] = self.grid[3][3]
-                        self.grid[3][3] = None
-                else:
-                    self.grid[3][1] = self.grid[3][2]
-                    self.grid[3][2] = self.grid[3][3]
-                    self.grid[3][3] = None
-            else:
-                self.grid[3][2] = self.grid[3][3]
-                self.grid[3][3] = None
-        else:
-            pass
+        pass
 
     def move_up(self):
         
-        if self.grid[0][3] != None:
-            if self.grid[0][2] != None:
-                if self.grid[0][1] != None:
-                    if self.grid[0][0] != None:
-                        pass
-                    else:
-                        self.grid[0][0] = self.grid[0][1]
-                        self.grid[0][1] = self.grid[0][2]
-                        self.grid[0][2] = self.grid[0][3]
-                        self.grid[0][3] = None
-                else:
-                    self.grid[0][1] = self.grid[0][2]
-                    self.grid[0][2] = self.grid[0][3]
-                    self.grid[0][3] = None
-            else:
-                self.grid[0][2] = self.grid[0][3]
-                self.grid[0][3] = None
-        else:
-            pass
-        if self.grid[1][3] != None:
-            if self.grid[1][2] != None:
-                if self.grid[1][1] != None:
-                    if self.grid[1][0] != None:
-                        pass
-                    else:
-                        self.grid[1][0] = self.grid[1][1]
-                        self.grid[1][1] = self.grid[1][2]
-                        self.grid[1][2] = self.grid[1][3]
-                        self.grid[1][3] = None
-                else:
-                    self.grid[1][1] = self.grid[1][2]
-                    self.grid[1][2] = self.grid[1][3]
-                    self.grid[1][3] = None
-            else:
-                self.grid[1][2] = self.grid[1][3]
-                self.grid[1][3] = None
-        else:
-            pass
-        if self.grid[2][3] != None:
-            if self.grid[2][2] != None:
-                if self.grid[2][1] != None:
-                    if self.grid[2][0] != None:
-                        pass
-                    else:
-                        self.grid[2][0] = self.grid[2][1]
-                        self.grid[2][1] = self.grid[2][2]
-                        self.grid[2][2] = self.grid[2][3]
-                        self.grid[2][3] = None
-                else:
-                    self.grid[2][1] = self.grid[2][2]
-                    self.grid[2][2] = self.grid[2][3]
-                    self.grid[2][3] = None
-            else:
-                self.grid[2][2] = self.grid[2][3]
-                self.grid[2][3] = None
-        else:
-            pass
-        if self.grid[3][3] != None:
-            if self.grid[3][2] != None:
-                if self.grid[3][1] != None:
-                    if self.grid[3][0] != None:
-                        pass
-                    else:
-                        self.grid[3][0] = self.grid[3][1]
-                        self.grid[3][1] = self.grid[3][2]
-                        self.grid[3][2] = self.grid[3][3]
-                        self.grid[3][3] = None
-                else:
-                    self.grid[3][1] = self.grid[3][2]
-                    self.grid[3][2] = self.grid[3][3]
-                    self.grid[3][3] = None
-            else:
-                self.grid[3][2] = self.grid[3][3]
-                self.grid[3][3] = None
-        else:
-            pass
+        pass
 
     def move_down(self):
         
-        if self.grid[0][3] != None:
-            if self.grid[0][2] != None:
-                if self.grid[0][1] != None:
-                    if self.grid[0][0] != None:
-                        pass
-                    else:
-                        self.grid[0][0] = self.grid[0][1]
-                        self.grid[0][1] = self.grid[0][2]
-                        self.grid[0][2] = self.grid[0][3]
-                        self.grid[0][3] = None
-                else:
-                    self.grid[0][1] = self.grid[0][2]
-                    self.grid[0][2] = self.grid[0][3]
-                    self.grid[0][3] = None
-            else:
-                self.grid[0][2] = self.grid[0][3]
-                self.grid[0][3] = None
-        else:
-            pass
-        if self.grid[1][3] != None:
-            if self.grid[1][2] != None:
-                if self.grid[1][1] != None:
-                    if self.grid[1][0] != None:
-                        pass
-                    else:
-                        self.grid[1][0] = self.grid[1][1]
-                        self.grid[1][1] = self.grid[1][2]
-                        self.grid[1][2] = self.grid[1][3]
-                        self.grid[1][3] = None
-                else:
-                    self.grid[1][1] = self.grid[1][2]
-                    self.grid[1][2] = self.grid[1][3]
-                    self.grid[1][3] = None
-            else:
-                self.grid[1][2] = self.grid[1][3]
-                self.grid[1][3] = None
-        else:
-            pass
-        if self.grid[2][3] != None:
-            if self.grid[2][2] != None:
-                if self.grid[2][1] != None:
-                    if self.grid[2][0] != None:
-                        pass
-                    else:
-                        self.grid[2][0] = self.grid[2][1]
-                        self.grid[2][1] = self.grid[2][2]
-                        self.grid[2][2] = self.grid[2][3]
-                        self.grid[2][3] = None
-                else:
-                    self.grid[2][1] = self.grid[2][2]
-                    self.grid[2][2] = self.grid[2][3]
-                    self.grid[2][3] = None
-            else:
-                self.grid[2][2] = self.grid[2][3]
-                self.grid[2][3] = None
-        else:
-            pass
-        if self.grid[3][3] != None:
-            if self.grid[3][2] != None:
-                if self.grid[3][1] != None:
-                    if self.grid[3][0] != None:
-                        pass
-                    else:
-                        self.grid[3][0] = self.grid[3][1]
-                        self.grid[3][1] = self.grid[3][2]
-                        self.grid[3][2] = self.grid[3][3]
-                        self.grid[3][3] = None
-                else:
-                    self.grid[3][1] = self.grid[3][2]
-                    self.grid[3][2] = self.grid[3][3]
-                    self.grid[3][3] = None
-            else:
-                self.grid[3][2] = self.grid[3][3]
-                self.grid[3][3] = None
-        else:
-            pass
+        pass
