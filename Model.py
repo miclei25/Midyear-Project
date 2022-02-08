@@ -3,7 +3,9 @@ import random
 
 class Grid():
 
-    def __init__(self):
+    def __init__(self, score):
+        self.score = score
+        
         self.grid = []
         for n in range(4):
             self.grid.append([None] * 4)
