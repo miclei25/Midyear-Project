@@ -3,8 +3,7 @@ import random
 
 class Grid():
 
-    def __init__(self, score):
-        self.score = score
+    def __init__(self):
         
         self.grid = []
         for n in range(4):
