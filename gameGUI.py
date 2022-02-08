@@ -30,8 +30,6 @@ class Game_Screen(Frame):
         Label(self, text = "\n\n\n\n\n\n\n").grid(row = 1)
 
         Label(self, text = "Score:", font = "Georgia 15", fg = "Hot Pink"). grid (row = 0, column = 2)
-        Label(self, text = self.score, font = "Georgia 15", fg = "Hot Pink")
-        self.score = 0
 
         self.row1text = StringVar()
         self.row1text.set("")
