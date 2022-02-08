@@ -31,25 +31,21 @@ class Grid():
                     if self.grid[n][1] != None:
                         if self.grid[n][0] != None:
                             pass
-                            self.add_number()
                         else:
                             self.grid[n][0] = self.grid[n][1]
                             self.grid[n][1] = self.grid[n][2]
                             self.grid[n][2] = self.grid[n][3]
                             self.grid[n][3] = None
-                            self.add_number()
                     else:
                         self.grid[n][1] = self.grid[n][2]
                         self.grid[n][2] = self.grid[n][3]
                         self.grid[n][3] = None
-                        self.add_number()
                 else:
                     self.grid[n][2] = self.grid[n][3]
                     self.grid[n][3] = None
-                    self.add_number()
             else:
                 pass
-                self.add_number()
+            self.add_number()
 
     def move_right(self):
         
