@@ -22,7 +22,7 @@ class Game_Screen(Frame):
             else:
                 row1text += "   " + str(i)
             
-        pass
+
 
     def create_widgets(self):
         
