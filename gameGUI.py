@@ -18,5 +18,7 @@ class Game_Screen(Frame):
         Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.callback_on_exit
         ).grid(row = 2, column = 1)
 
+        
+
     def selected_exit(self):
         self.callback_on_exit()
