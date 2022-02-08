@@ -25,27 +25,32 @@ class Grid():
     
     def move_left(self):
 
-        for n in range(4):
-            if self.grid[n][3] != None:
-                if self.grid[n][2] != None:
-                    if self.grid[n][1] != None:
-                        if self.grid[n][0] != None:
-                            pass
-                        else:
-                            self.grid[n][0] = self.grid[n][1]
-                            self.grid[n][1] = self.grid[n][2]
-                            self.grid[n][2] = self.grid[n][3]
-                            self.grid[n][3] = None
-                    else:
-                        self.grid[n][1] = self.grid[n][2]
-                        self.grid[n][2] = self.grid[n][3]
-                        self.grid[n][3] = None
-                else:
-                    self.grid[n][2] = self.grid[n][3]
-                    self.grid[n][3] = None
-            else:
-                pass
-            self.add_number()
+        # for n in range(4):
+        #     if self.grid[n][3] != None:
+        #         if self.grid[n][2] != None:
+        #             if self.grid[n][1] != None:
+        #                 if self.grid[n][0] != None:
+        #                     pass
+        #                 else:
+        #                     self.grid[n][0] = self.grid[n][1]
+        #                     self.grid[n][1] = self.grid[n][2]
+        #                     self.grid[n][2] = self.grid[n][3]
+        #                     self.grid[n][3] = None
+        #             else:
+        #                 self.grid[n][1] = self.grid[n][2]
+        #                 self.grid[n][2] = self.grid[n][3]
+        #                 self.grid[n][3] = None
+        #         else:
+        #             self.grid[n][2] = self.grid[n][3]
+        #             self.grid[n][3] = None
+        #     else:
+        #         pass
+        #     self.add_number()
+
+        for r in range(4):
+            for cell in self.grid[r]:
+                if cell == None:
+                    pass
 
     def move_right(self):
         
