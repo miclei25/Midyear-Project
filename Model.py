@@ -4,6 +4,7 @@ import random
 class Grid():
 
     def __init__(self):
+        
         self.grid = []
         for n in range(4):
             self.grid.append([None] * 4)
@@ -23,31 +24,41 @@ class Grid():
     
     def move_left(self):
 
-        if self.grid[0][3] != None:
-            if self.grid[0][2] != None:
-                if self.grid[0][1] != None:
-                    if self.grid[0][0] != None:
-                        pass
-                    else:
-                        self.grid[0][0] = self.grid[0][1]
-                        self.grid[0][1] = self.grid[0][2]
-                        self.grid[0][2] = self.grid[0][3]
-                        self.grid[0][3] = None
-                else:
-                    self.grid[0][1] = self.grid[0][2]
-                    self.grid[0][2] = self.grid[0][3]
-                    self.grid[0][3] = None
-            else:
-                self.grid[0][2] = self.grid[0][3]
-                self.grid[0][3] = None
-        else:
-            pass
+        # for n in range(4):
+        #     if self.grid[n][3] != None:
+        #         if self.grid[n][2] != None:
+        #             if self.grid[n][1] != None:
+        #                 if self.grid[n][0] != None:
+        #                     pass
+        #                 else:
+        #                     self.grid[n][0] = self.grid[n][1]
+        #                     self.grid[n][1] = self.grid[n][2]
+        #                     self.grid[n][2] = self.grid[n][3]
+        #                     self.grid[n][3] = None
+        #             else:
+        #                 self.grid[n][1] = self.grid[n][2]
+        #                 self.grid[n][2] = self.grid[n][3]
+        #                 self.grid[n][3] = None
+        #         else:
+        #             self.grid[n][2] = self.grid[n][3]
+        #             self.grid[n][3] = None
+        #     else:
+        #         pass
+        #     self.add_number()
+
+        for r in range(4):
+            for cell in self.grid[r]:
+                if cell == None:
+                    pass
 
     def move_right(self):
+        
         pass
 
     def move_up(self):
+        
         pass
 
     def move_down(self):
+        
         pass
