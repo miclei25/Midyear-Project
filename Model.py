@@ -26,6 +26,8 @@ class Grid():
                 self.grid[row][col] = 4
             else:
                 self.grid[row][col] = 2
+        else:
+            self.grid[row][col] = 2
     
     def move_left(self):
 

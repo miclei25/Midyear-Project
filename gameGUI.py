@@ -16,21 +16,17 @@ class Game_Screen(Frame):
         self.grid1 = Grid()
 
     def display_grid(self):
-        #for row in range(0):
-        row = 0
-        for row in range(0,4):
-            rowonetext = ""
-            for col in range(0,4):
+        
+        for row in range(4):
+            rowtext = ""
+            for col in range(4):
                 if self.grid1.grid[row][col] == None:
-                    rowonetext += "  x  "
+                    rowtext += "  x  "
                 else:
-                    rowonetext += "   " + str(self.grid1.grid[row][col])
+                    rowtext += f"{str(self.grid1.grid[row][col]):5s}"
 
-            self.rowtexts[row].set(rowonetext)
-
-            
-
-
+            self.rowtexts[row].set(rowtext)
+       
     def create_widgets(self):
         
         Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 0, column = 1)
@@ -63,7 +59,8 @@ class Game_Screen(Frame):
         pass
 
     def left(self):
-        Grid().move_left()
+        self.grid1.move_left()
+        self.display_grid()
 
     def right(self):
         pass
