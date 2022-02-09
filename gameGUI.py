@@ -22,14 +22,12 @@ class Game_Screen(Frame):
             else:
                 row1text += "   " + str(i)
             
-
+        pass
 
     def create_widgets(self):
         
         Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 0, column = 1)
         Label(self, text = "\n\n\n\n\n\n\n").grid(row = 1)
-
-        Label(self, text = "Score:", font = "Georgia 15", fg = "Hot Pink"). grid (row = 0, column = 2)
 
         self.row1text = StringVar()
         self.row1text.set("")
@@ -47,13 +45,13 @@ class Game_Screen(Frame):
         self.row4text.set("")
         Label(self, textvariable = self.row4text).grid(row = 2, column = 1)
 
+        Button(self, text = "Up", font = "Symbol 10", fg = "firebrick1").grid(row = 3, column = 0)
+        Button(self, text = "Left", font = "Symbol 10", fg = "firebrick1").grid(row = 4, column = 0)
+        Button(self, text = "Right", font = "Symbol 10", fg = "firebrick1").grid(row = 4, column = 1)
+        Button(self, text = "Down", font = "Symbol 10", fg = "firebrick1").grid(row = 5, column = 0)
+        
         Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.callback_on_exit
-        ).grid(row = 3, column = 1)
-
-
-
-
-
+        ).grid(row = 6, column = 1)
 
     def selected_exit(self):
         self.callback_on_exit()
