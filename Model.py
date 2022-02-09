@@ -36,15 +36,24 @@ class Grid():
                         self.grid[r][cell] = None
                     else:
                         prev_cell = cell
+            
+            prev_cell = None
+            for cell in range(len(self.grid[r])):
+                if prev_cell == None:
+                    prev_cell = cell
+                elif self.grid[r][cell] == None and self.grid[r][prev_cell] != None:
+                    prev_cell = cell
 
-            # for cell in self.grid[r]:
+                    for c in range(len(self.grid[r])):
+                        if self.grid[r][c] == None:
+                            prev_cell = c
+                            break
 
-            #     if cell != None:
-            #         if cell == prev_cell:
-            #             prev_cell **= 2
-            #             cell = None
-            #         else:
-            #             prev_cell = cell
+                elif self.grid[r][cell] != None:
+                    self.grid[r][prev_cell] = self.grid[r][cell]
+                    self.grid[r][cell] = None
+                    
+        self.add_number()
 
     def move_right(self):
         
