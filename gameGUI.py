@@ -45,13 +45,29 @@ class Game_Screen(Frame):
         self.row4text.set("")
         Label(self, textvariable = self.row4text).grid(row = 2, column = 1)
 
-        Button(self, text = "Up", font = "Symbol 10", fg = "firebrick1").grid(row = 3, column = 0)
-        Button(self, text = "Left", font = "Symbol 10", fg = "firebrick1").grid(row = 4, column = 0)
-        Button(self, text = "Right", font = "Symbol 10", fg = "firebrick1").grid(row = 4, column = 1)
-        Button(self, text = "Down", font = "Symbol 10", fg = "firebrick1").grid(row = 5, column = 0)
+        Button(self, text = "UP", font = "Helvetica 10 bold", fg = "firebrick1", command = self.up
+        ).grid(row = 3, column = 0, sticky = E)
+        Button(self, text = "DOWN", font = "Helvetica 10 bold", fg = "firebrick1", command = self.down
+        ).grid(row = 3, column = 1, sticky = W)
+        Button(self, text = "LEFT", font = "Helvetica 10 bold", fg = "firebrick1", command = self.left
+        ).grid(row = 4, column = 0, sticky = E)
+        Button(self, text = "RIGHT", font = "Helvetica 10 bold", fg = "firebrick1", command = self.right
+        ).grid(row = 4, column = 1, sticky = W)
         
-        Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.callback_on_exit
+        Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.selected_exit
         ).grid(row = 6, column = 1)
 
+    def up(self):
+        pass
+
+    def down(self):
+        pass
+
+    def left(self):
+        pass
+
+    def right(self):
+        pass
+    
     def selected_exit(self):
         self.callback_on_exit()
