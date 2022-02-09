@@ -63,7 +63,7 @@ class Game_Screen(Frame):
         pass
 
     def left(self):
-        pass
+        Grid().move_left()
 
     def right(self):
         pass
