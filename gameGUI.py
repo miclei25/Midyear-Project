@@ -35,7 +35,7 @@ class Game_Screen(Frame):
         
         Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 0, column = 1)
 
-        Label(self, text = "Score:", font = "Georgia 15", fg = "Hot Pink"). grid (row = 1, column = 1)
+        Label(self, text = "Score:\n\n", font = "Georgia 15", fg = "Hot Pink"). grid (row = 1, column = 1)
 
         self.rowtexts = []
         for row in range(0,4):
