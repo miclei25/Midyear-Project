@@ -45,7 +45,7 @@ class Game_Screen(Frame):
             Label(self, textvariable = rowtext).grid(row = row + 2, column = 1)
             self.rowtexts.append(rowtext)
 
-<<<<<<< HEAD
+
         self.row3text = StringVar()
         self.row3text.set("")
         Label(self, textvariable = self.row3text).grid(row = 2, column = 1)
@@ -77,16 +77,7 @@ class Game_Screen(Frame):
 
     def right(self):
         pass
-    
+        
 
-        Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.callback_on_exit
-        ).grid(row = 6, column = 1)
-
-
-
-
-
-
->>>>>>> 236d69a41c26757523b1a81b3d73bb51752333bc
     def selected_exit(self):
         self.callback_on_exit()
