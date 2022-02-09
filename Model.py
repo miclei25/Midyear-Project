@@ -20,7 +20,12 @@ class Grid():
             row = random.randint(0,3)
             col = random.randint(0,3)
         
-        self.grid[row][col] = 2
+        if 32 in self.grid[0] or 32 in self.grid[1] or 32 in self.grid[2] or 32 in self.grid[3]:
+            if_four = random.randint(0,10)
+            if if_four <= 2:
+                self.grid[row][col] = 4
+            else:
+                self.grid[row][col] = 2
     
     def move_left(self):
 
