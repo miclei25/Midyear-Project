@@ -34,9 +34,8 @@ class Game_Screen(Frame):
     def create_widgets(self):
         
         Label(self, text = "2048", font = "Georgia 25 bold", fg = "Hot Pink").grid(row = 0, column = 1)
-        Label(self, text = "\n\n\n\n\n\n\n").grid(row = 1)
 
-        Label(self, text = "Score:", font = "Georgia 15", fg = "Hot Pink"). grid (row = 0, column = 2)
+        Label(self, text = "Score:", font = "Georgia 15", fg = "Hot Pink"). grid (row = 1, column = 1)
 
         self.rowtexts = []
         for row in range(0,4):
@@ -45,26 +44,17 @@ class Game_Screen(Frame):
             Label(self, textvariable = rowtext).grid(row = row + 2, column = 1)
             self.rowtexts.append(rowtext)
 
-
-        self.row3text = StringVar()
-        self.row3text.set("")
-        Label(self, textvariable = self.row3text).grid(row = 2, column = 1)
-
-        self.row4text = StringVar()
-        self.row4text.set("")
-        Label(self, textvariable = self.row4text).grid(row = 2, column = 1)
-
         Button(self, text = "UP", font = "Helvetica 10 bold", fg = "firebrick1", command = self.up
-        ).grid(row = 3, column = 0, sticky = E)
+        ).grid(row = 8, column = 0, sticky = E)
         Button(self, text = "DOWN", font = "Helvetica 10 bold", fg = "firebrick1", command = self.down
-        ).grid(row = 3, column = 1, sticky = W)
+        ).grid(row = 8, column = 1, sticky = W)
         Button(self, text = "LEFT", font = "Helvetica 10 bold", fg = "firebrick1", command = self.left
-        ).grid(row = 4, column = 0, sticky = E)
+        ).grid(row = 9, column = 0, sticky = E)
         Button(self, text = "RIGHT", font = "Helvetica 10 bold", fg = "firebrick1", command = self.right
-        ).grid(row = 4, column = 1, sticky = W)
+        ).grid(row = 9, column = 1, sticky = W)
         
         Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.selected_exit
-        ).grid(row = 6, column = 1)
+        ).grid(row = 10, column = 1)
 
     def up(self):
         pass
