@@ -53,17 +53,20 @@ class Game_Screen(Frame):
         ).grid(row = 10, column = 1)
 
     def up(self):
-        pass
+        self.grid1.move_up()
+        self.display_grid()
 
     def down(self):
-        pass
+        self.grid1.move_down()
+        self.display_grid()
 
     def left(self):
         self.grid1.move_left()
         self.display_grid()
 
     def right(self):
-        pass
+        self.grid1.move_right()
+        self.display_grid()
         
 
     def selected_exit(self):
