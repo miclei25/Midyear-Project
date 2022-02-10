@@ -39,7 +39,7 @@ class Grid():
                     if prev_cell == None:
                         prev_cell = cell
                     elif self.grid[r][cell] == self.grid[r][prev_cell]:
-                        self.grid[r][prev_cell] **= 2
+                        self.grid[r][prev_cell] *= 2
                         self.grid[r][cell] = None
                     else:
                         prev_cell = cell
@@ -56,7 +56,7 @@ class Grid():
                             prev_cell = c
                             break
 
-                elif self.grid[r][cell] != None:
+                elif self.grid[r][cell] != None and self.grid[r][prev_cell] == None:
                     self.grid[r][prev_cell] = self.grid[r][cell]
                     self.grid[r][cell] = None
                     
