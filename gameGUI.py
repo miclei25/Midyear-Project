@@ -35,10 +35,11 @@ class Game_Screen(Frame):
 
         self.rowtexts = []
         for row in range(0,4):
-            rowtext = StringVar()
-            rowtext.set("")
-            Label(self, textvariable = rowtext).grid(row = row + 2, column = 1)
-            self.rowtexts.append(rowtext)
+            for col in range(0,4):
+                rowtext = StringVar()
+                rowtext.set("")
+                Label(self, textvariable = rowtext).grid(row = row + 2, column = 1)
+                self.rowtexts.append(rowtext)
 
         Button(self, text = "UP", font = "Helvetica 10 bold", fg = "firebrick1", command = self.up
         ).grid(row = 8, column = 0, sticky = E)
