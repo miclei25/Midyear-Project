@@ -18,14 +18,14 @@ class Game_Screen(Frame):
     def display_grid(self):
         
         for row in range(4):
-            rowtext = ""
             for col in range(4):
+                w = self.imagelabels[row*4 + col]
                 if self.grid1.grid[row][col] == None:
-                    rowtext += "  x  "
+                    image = PhotoImage(file="images/image0.gif")
                 else:
-                    rowtext += f"{str(self.grid1.grid[row][col]):5s}"
-
-            self.rowtexts[row].set(rowtext)
+                    image = PhotoImage(file="images/image" + str(self.grid1.grid[row][col]) + ".gif")
+                w.configure(image = image)
+                w.image = image
        
     def create_widgets(self):
         
@@ -33,12 +33,14 @@ class Game_Screen(Frame):
 
         Label(self, text = "Score:\n\n", font = "Georgia 15", fg = "Hot Pink"). grid (row = 1, column = 1)
 
-        self.rowtexts = []
+        self.imagelabels = []
         for row in range(0,4):
-            rowtext = StringVar()
-            rowtext.set("")
-            Label(self, textvariable = rowtext).grid(row = row + 2, column = 1)
-            self.rowtexts.append(rowtext)
+            for col in range(0,4):
+                image = PhotoImage(file="images/image0.gif")
+                piclabel = Label(self, image = image)
+                self.imagelabels.append(piclabel)
+                piclabel.photo = image # saving the image as a property is required for "saving" the image. It's odd.
+                piclabel.grid(row = row + 2, column = col + 1)
 
         Button(self, text = "UP", font = "Helvetica 10 bold", fg = "HotPink4", command = self.up
         ).grid(row = 8, column = 0, sticky = E)
