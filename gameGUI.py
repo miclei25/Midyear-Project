@@ -21,9 +21,9 @@ class Game_Screen(Frame):
             rowtext = ""
             for col in range(4):
                 if self.grid1.grid[row][col] == None:
-                    rowtext += "  x  "
+                    rowtext += f"  {'x':4s}"
                 else:
-                    rowtext += f"{str(self.grid1.grid[row][col]):5s}"
+                    rowtext += f"  {str(self.grid1.grid[row][col]):4s}"
 
             self.rowtexts[row].set(rowtext)
        
