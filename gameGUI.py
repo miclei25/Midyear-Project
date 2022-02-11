@@ -68,6 +68,5 @@ class Game_Screen(Frame):
         self.grid1.move_right()
         self.display_grid()
         
-
     def selected_exit(self):
-        self.callback_on_exit()
+        self.callback_on_exit() 
