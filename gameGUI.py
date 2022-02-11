@@ -35,11 +35,10 @@ class Game_Screen(Frame):
 
         self.rowtexts = []
         for row in range(0,4):
-            for col in range(0,4):
-                rowtext = StringVar()
-                rowtext.set("")
-                Label(self, textvariable = rowtext).grid(row = row + 2, column = 1)
-                self.rowtexts.append(rowtext)
+            rowtext = StringVar()
+            rowtext.set("")
+            Label(self, textvariable = rowtext).grid(row = row + 2, column = 1)
+            self.rowtexts.append(rowtext)
 
         Button(self, text = "UP", font = "Helvetica 10 bold", fg = "HotPink4", command = self.up
         ).grid(row = 8, column = 0, sticky = E)
@@ -69,6 +68,5 @@ class Game_Screen(Frame):
         self.grid1.move_right()
         self.display_grid()
         
-
     def selected_exit(self):
-        self.callback_on_exit()
+        self.callback_on_exit() 
