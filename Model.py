@@ -8,6 +8,7 @@ class Grid():
         self.grid = []
         for n in range(4):
             self.grid.append([None] * 4)
+        self.score = 0
         
         self.add_number()
         self.add_number()
@@ -44,6 +45,7 @@ class Grid():
                     elif self.grid[r][cell] == self.grid[r][prev_cell]:
                         self.grid[r][prev_cell] *= 2
                         self.grid[r][cell] = None
+                        self.score += self.grid[r][prev_cell]
                         move = True
 
                     else:
@@ -83,6 +85,7 @@ class Grid():
                     elif self.grid[r][3 - c] == self.grid[r][prev_cell]:
                         self.grid[r][prev_cell] *= 2
                         self.grid[r][3 - c] = None
+                        self.score += self.grid[r][prev_cell]
                         move = True
 
                     else:
@@ -121,6 +124,7 @@ class Grid():
                     elif self.grid[r][c] == self.grid[prev_cell][c]:
                         self.grid[r][c] *= 2
                         self.grid[prev_cell][c] = None
+                        self.score += self.grid[r][c]
                         move = True
                     
                     else:
