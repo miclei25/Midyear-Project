@@ -23,7 +23,7 @@ class Game_Screen(Frame):
                 if self.grid1.grid[row][col] == None:
                     image = PhotoImage(file="images/image0.gif")
                 else:
-                    image = PhotoImage(file="images/image" + str(self.grid1.grid[row][col]) + ".gif")
+                    image = PhotoImage(file="images/image" + str(self.grid1.grid[row][col]) + "num.gif")
                 w.configure(image = image)
                 w.image = image
        
