@@ -41,6 +41,7 @@ class Game_Screen(Frame):
                 self.imagelabels.append(piclabel)
                 piclabel.photo = image # saving the image as a property is required for "saving" the image. It's odd.
                 piclabel.grid(row = row + 2, column = col + 1)
+                
         Label(self, text = "").grid(row = 8)
         Button(self, text = "UP", font = "Helvetica 10 bold", fg = "DeepPink", command = self.up
         ).grid(row = 9, column = 0, sticky = E, columnspan = 4)
