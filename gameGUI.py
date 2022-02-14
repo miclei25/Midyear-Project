@@ -1,9 +1,11 @@
 from tkinter import *
 from Model import *
+
+bg_color = "black"
 class Game_Screen(Frame):
 
     def __init__(self, master, callback_on_exit):
-        super().__init__(master)
+        super().__init__(master, bg = "black")
 
         self.callback_on_exit = callback_on_exit
 
@@ -11,6 +13,7 @@ class Game_Screen(Frame):
         self.create_widgets()
         self.grid()
         self.display_grid()
+
 
     def setup_grid(self):
         self.grid1 = Grid()
@@ -29,9 +32,9 @@ class Game_Screen(Frame):
        
     def create_widgets(self):
         
-        Label(self, text = "2048\n", font = "Georgia 30 bold", fg = "Hot Pink").grid(row = 0, column = 1, columnspan = 3)
+        Label(self, text = "2048\n", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color).grid(row = 0, column = 1, columnspan = 3)
 
-        Label(self, text = "Score:\n\n", font = "Georgia 15", fg = "Hot Pink"). grid (row = 1, column = 1)
+        Label(self, text = "Score:\n\n", font = "Georgia 15", fg = "Hot Pink", bg = bg_color). grid (row = 1, column = 1)
 
         self.imagelabels = []
         for row in range(0,4):
@@ -41,6 +44,7 @@ class Game_Screen(Frame):
                 self.imagelabels.append(piclabel)
                 piclabel.photo = image # saving the image as a property is required for "saving" the image. It's odd.
                 piclabel.grid(row = row + 2, column = col + 1)
+                
         Label(self, text = "").grid(row = 8)
         Button(self, text = "UP", font = "Helvetica 10 bold", fg = "DeepPink", command = self.up
         ).grid(row = 9, column = 0, sticky = E, columnspan = 4)
@@ -51,8 +55,8 @@ class Game_Screen(Frame):
         Button(self, text = "RIGHT", font = "Helvetica 10 bold", fg = "DeepPink", command = self.right
         ).grid(row = 10, column = 2, sticky = W, columnspan = 4)
         
-        Label(self, text = "").grid(row = 10)
-        Button(self, text = "Exit", font = "Courier 12 bold", fg = "Maroon3", command = self.selected_exit
+        Label(self, text = "\n", bg = bg_color).grid(row = 10)
+        Button(self, text = "Exit", font = "Courier 12 bold", fg = "black", bg = "Hot Pink", command = self.selected_exit
         ).grid(row = 11, column = 1, columnspan = 4)
 
     def up(self):
