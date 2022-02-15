@@ -14,7 +14,6 @@ class Game_Screen(Frame):
         self.grid()
         self.display_grid()
 
-
     def setup_grid(self):
         self.grid1 = Grid()
 
@@ -32,9 +31,10 @@ class Game_Screen(Frame):
        
     def create_widgets(self):
         
-        Label(self, text = "2048\n", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color).grid(row = 0, column = 1, columnspan = 3)
+        Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color).grid(row = 0, column = 1, columnspan = 3)
 
-        Label(self, text = "Score:\n\n", font = "Georgia 15", fg = "Hot Pink", bg = bg_color). grid (row = 1, column = 1)
+        self.update_score = Label(self, text = f"Score:\n", font = "Georgia 15", fg = "Hot Pink", bg = bg_color
+        ).grid(row = 1, column = 1)
 
         self.imagelabels = []
         for row in range(0,4):
@@ -44,24 +44,26 @@ class Game_Screen(Frame):
                 self.imagelabels.append(piclabel)
                 piclabel.photo = image # saving the image as a property is required for "saving" the image. It's odd.
                 piclabel.grid(row = row + 2, column = col + 1)
-                
-        Label(self, text = "").grid(row = 8)
-        Button(self, text = "UP", font = "Helvetica 10 bold", fg = "DeepPink", command = self.up
-        ).grid(row = 9, column = 0, sticky = E, columnspan = 4)
-        Button(self, text = "DOWN", font = "Helvetica 10 bold", fg = "DeepPink", command = self.down
-        ).grid(row = 9, column = 2, sticky = W, columnspan = 4)
-        Button(self, text = "LEFT", font = "Helvetica 10 bold", fg = "DeepPink", command = self.left
-        ).grid(row = 10, column = 0, sticky = E, columnspan = 4)
-        Button(self, text = "RIGHT", font = "Helvetica 10 bold", fg = "DeepPink", command = self.right
-        ).grid(row = 10, column = 2, sticky = W, columnspan = 4)
+
+        Label(self, text = "", bg = bg_color).grid(row = 8)
+        Button(self, text = "   UP  ", font = "Helvetica 10 bold", fg = "DeepPink", command = self.up
+        ).grid(row = 9, column = 2, sticky = E)
+        Button(self, text = " DOWN ", font = "Helvetica 10 bold", fg = "DeepPink", command = self.down
+        ).grid(row = 9, column = 3, sticky = W)
+        Button(self, text = " LEFT ", font = "Helvetica 10 bold", fg = "DeepPink", command = self.left
+        ).grid(row = 10, column = 2, sticky = E)
+        Button(self, text = " RIGHT ", font = "Helvetica 10 bold", fg = "DeepPink", command = self.right
+        ).grid(row = 10, column = 3, sticky = W)
         
         Label(self, text = "\n", bg = bg_color).grid(row = 10)
         Button(self, text = "Exit", font = "Courier 12 bold", fg = "black", bg = "Hot Pink", command = self.selected_exit
         ).grid(row = 11, column = 1, columnspan = 4)
 
+
     def up(self):
         self.grid1.move_up()
         self.display_grid()
+        
 
     def down(self):
         self.grid1.move_down()

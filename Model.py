@@ -8,6 +8,7 @@ class Grid():
         self.grid = []
         for n in range(4):
             self.grid.append([None] * 4)
+
         self.score = 0
         
         self.add_number()
