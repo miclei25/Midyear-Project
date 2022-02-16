@@ -8,11 +8,11 @@ class Grid():
         self.grid = []
         for n in range(4):
             self.grid.append([None] * 4)
-
-        self.score = 0
         
         self.add_number()
         self.add_number()
+
+        self.score = 0
 
     def add_number(self):
         row = random.randint(0,3)
