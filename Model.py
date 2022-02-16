@@ -46,7 +46,8 @@ class Grid():
                     elif self.grid[r][cell] == self.grid[r][prev_cell]:
                         self.grid[r][prev_cell] *= 2
                         self.grid[r][cell] = None
-                        self.score += self.grid[r][prev_cell]
+                        if self.grid[r][prev_cell] != None:
+                            self.score += self.grid[r][prev_cell]
 
                         for c in range(prev_cell, 4):
                             if self.grid[r][c] == None:
@@ -92,7 +93,8 @@ class Grid():
                     elif self.grid[r][cell] == self.grid[r][prev_cell]:
                         self.grid[r][prev_cell] *= 2
                         self.grid[r][cell] = None
-                        self.score += self.grid[r][prev_cell]
+                        if self.grid[r][prev_cell] != None:
+                            self.score += self.grid[r][prev_cell]
 
                         for c in range(prev_cell, -1, -1):
                             if self.grid[r][c] == None:
@@ -187,7 +189,7 @@ class Grid():
                     elif self.grid[r][c] == self.grid[prev_cell][c]:
                         self.grid[r][c] *= 2
                         self.grid[prev_cell][c] = None
-                        self.score += self.grid[prev_cell][c]
+                        self.score += self.grid[r][c]
 
                         for row in range(prev_cell, -1, -1):
                             if self.grid[row][c] == None:
