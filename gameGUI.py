@@ -33,18 +33,17 @@ class Game_Screen(Frame):
                     image = PhotoImage(file="images/image" + str(self.grid1.grid[row][col]) + "num.gif")
                 w.configure(image = image)
                 w.image = image
-        
-        # self.update_score["text"] = f"Score: {self.grid1.score}\n"
-        ########### THIS DOESN'T WORK FOR SOME REASON
        
     def create_widgets(self):
         
         Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color
              ).grid(row = 0, column = 1, columnspan = 3)
 
-        self.update_score = Label(self, text = f"Score: {self.grid1.score}\n", 
-                                 font = "Georgia 15", fg = "Hot Pink", bg = bg_color
-                                 ).grid(row = 1, column = 1)
+        #self.total_score = 0
+        self.total_score = StringVar()
+        self.total_score.set("")
+        self.update_score = Label(self, text = f"Score: {self.total_score}\n", font = "Georgia 15", fg = "Hot Pink", bg = bg_color
+        ).grid(row = 1, column = 1)
         
         self.imagelabels = []
         for row in range(0,4):
