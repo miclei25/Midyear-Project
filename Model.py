@@ -48,9 +48,9 @@ class Grid():
                         self.grid[r][cell] = None
                         self.score += self.grid[r][prev_cell]
 
-                        for c in range(len(self.grid[prev_cell + 1:-1])):
-                            if self.grid[r][prev_cell + 1 + c] == None:
-                                prev_cell = prev_cell + 1 + c
+                        for c in range(prev_cell, 4):
+                            if self.grid[r][c] == None:
+                                prev_cell = c
                                 break
                         move = True
 
@@ -94,7 +94,7 @@ class Grid():
                         self.grid[r][cell] = None
                         self.score += self.grid[r][prev_cell]
 
-                        for c in range(len(self.grid[:prev_cell]), -1, -1):
+                        for c in range(prev_cell, -1, -1):
                             if self.grid[r][c] == None:
                                 prev_cell = c
                                 break
@@ -141,9 +141,9 @@ class Grid():
                         if self.grid[prev_cell][c] != None:
                             self.score += self.grid[prev_cell][c]
 
-                        for row in range(len(self.grid[prev_cell + 1:-1])):
-                            if self.grid[prev_cell + 1 + row][c] == None:
-                                prev_cell = prev_cell + 1 + c
+                        for row in range(prev_cell, 4):
+                            if self.grid[row][c] == None:
+                                prev_cell = row
                                 break
                         move = True
                     
@@ -177,16 +177,22 @@ class Grid():
         
         for c in range(4):
             prev_cell = None
-            for r in range(len(self.grid[c])):
+            for r in range(len(self.grid[c]) - 1, -1, -1):
 
                 if self.grid[r][c] != None:
+
                     if prev_cell == None:
                         prev_cell = r
                     
                     elif self.grid[r][c] == self.grid[prev_cell][c]:
                         self.grid[r][c] *= 2
                         self.grid[prev_cell][c] = None
-                        self.score += self.grid[r][c]
+                        self.score += self.grid[prev_cell][c]
+
+                        for row in range(prev_cell, -1, -1):
+                            if self.grid[row][c] == None:
+                                prev_cell = row
+                                break
                         move = True
                     
                     else:
@@ -200,9 +206,9 @@ class Grid():
                         break
                 
                 if empty_cell != None and empty_cell != 0:
-                    for r in range(len(self.grid[:empty_cell + 1][c]) - 1, -1, -1):
+                    for r in range(empty_cell, -1, -1):
                         if self.grid[r][c] != None:
-                            self.grid[empty_cell][c] = self.grid[ r][c]
+                            self.grid[empty_cell][c] = self.grid[r][c]
                             self.grid[r][c] = None
                             move = True
                             break
