@@ -13,6 +13,11 @@ class Game_Screen(Frame):
         self.create_widgets()
         self.grid()
         self.display_grid()
+        
+        master.bind("<Left>", self.left)
+        master.bind("<Right>", self.right)
+        master.bind("<Up>", self.up)
+        master.bind("<Down>", self.down)
 
     def setup_grid(self):
         self.grid1 = Grid()
@@ -61,23 +66,23 @@ class Game_Screen(Frame):
         ).grid(row = 11, column = 1, columnspan = 4)
 
 
-    def up(self):
+    def up(self, event = None):
         self.grid1.move_up()
         self.display_grid()
 
-    def down(self):
+    def down(self, event = None):
         self.grid1.move_down()
         self.display_grid()
 
-    def left(self):
+    def left(self, event = None):
         self.grid1.move_left()
         self.display_grid()
-        self.update_score["text"] = f"Score: {self.score}"
+        
 
-    def right(self):
+    def right(self, event = None):
         self.grid1.move_right()
         self.display_grid()
-        self.update_score["text"] = f"Score: {self.score}"
+        
         
     def selected_exit(self):
         self.callback_on_exit() 
