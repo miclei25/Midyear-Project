@@ -13,6 +13,7 @@ class Game_Screen(Frame):
         self.create_widgets()
         self.grid()
         self.display_grid()
+        
 
     def setup_grid(self):
         self.grid1 = Grid()
