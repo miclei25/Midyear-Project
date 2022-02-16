@@ -13,7 +13,7 @@ class Game_Screen(Frame):
         self.create_widgets()
         self.grid()
         self.display_grid()
-        
+
         master.bind("<Left>", self.left)
         master.bind("<Right>", self.right)
         master.bind("<Up>", self.up)
