@@ -37,13 +37,14 @@ class Game_Screen(Frame):
     def create_widgets(self):
         
         Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color
-             ).grid(row = 0, column = 1, columnspan = 3)
+             ).grid(row = 0, column = 2, columnspan = 2)
 
         #self.total_score = 0
         self.total_score = StringVar()
-        self.total_score.set("")
-        #self.update_score = Label(self, text = f"Score: {self.total_score}\n", font = "Georgia 15", fg = "Hot Pink", bg = bg_color
-        #).grid(row = 1, column = 1)
+        self.total_score.set("0")
+        Label(self, text = "  Score:", font = "Georgia 20", fg = "Hot Pink", bg = bg_color).grid(row = 1, column = 2, sticky = E)
+        self.update_score = Label(self, textvariable = self.total_score, font = "Georgia 20", fg = "Hot Pink", bg = bg_color
+        ).grid(row = 1, column = 3, sticky = W)
         
         self.imagelabels = []
         for row in range(0,4):
@@ -68,22 +69,28 @@ class Game_Screen(Frame):
         Button(self, text = "Exit", font = "Courier 12 bold", fg = "black", bg = "Hot Pink", command = self.selected_exit
         ).grid(row = 11, column = 1, columnspan = 4)
 
+    def display_score(self):
+        self.total_score.set(str(self.grid1.score))
 
     def up(self, event = None):
         self.grid1.move_up()
         self.display_grid()
+        self.display_score()
 
     def down(self, event = None):
         self.grid1.move_down()
         self.display_grid()
+        self.display_score()
 
     def left(self, event = None):
         self.grid1.move_left()
-        self.display_grid()       
+        self.display_grid()   
+        self.display_score()    
 
     def right(self, event = None):
         self.grid1.move_right()
         self.display_grid()
+        self.display_score()
         
     def selected_exit(self):
         self.callback_on_exit() 
