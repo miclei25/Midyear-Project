@@ -41,8 +41,8 @@ class Game_Screen(Frame):
         #self.total_score = 0
         self.total_score = StringVar()
         self.total_score.set("")
-        self.update_score = Label(self, text = f"Score: {self.total_score}\n", font = "Georgia 15", fg = "Hot Pink", bg = bg_color
-        ).grid(row = 1, column = 1)
+        #self.update_score = Label(self, text = f"Score: {self.total_score}\n", font = "Georgia 15", fg = "Hot Pink", bg = bg_color
+        #).grid(row = 1, column = 1)
         
         self.imagelabels = []
         for row in range(0,4):
