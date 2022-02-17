@@ -36,7 +36,8 @@ class Game_Screen(Frame):
        
     def create_widgets(self):
         
-        Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color).grid(row = 0, column = 1, columnspan = 3)
+        Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color
+             ).grid(row = 0, column = 1, columnspan = 3)
 
         #self.total_score = 0
         self.total_score = StringVar()
@@ -50,7 +51,7 @@ class Game_Screen(Frame):
                 image = PhotoImage(file="images/image0.gif")
                 piclabel = Label(self, image = image)
                 self.imagelabels.append(piclabel)
-                piclabel.photo = image # saving the image as a property is required for "saving" the image. It's odd.
+                piclabel.photo = image
                 piclabel.grid(row = row + 2, column = col + 1)
                 
         Label(self, text = "", bg = bg_color).grid(row = 8)
@@ -78,13 +79,11 @@ class Game_Screen(Frame):
 
     def left(self, event = None):
         self.grid1.move_left()
-        self.display_grid()
-        
+        self.display_grid()       
 
     def right(self, event = None):
         self.grid1.move_right()
         self.display_grid()
-        
         
     def selected_exit(self):
         self.callback_on_exit() 
