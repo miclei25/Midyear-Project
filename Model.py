@@ -77,6 +77,8 @@ class Grid():
         
         if move == True:
             self.add_number()
+        else:
+            self.left = False
 
     def move_right(self):
         move = False
@@ -124,6 +126,8 @@ class Grid():
 
         if move == True:
             self.add_number()
+        else:
+            self.right = False
 
     def move_up(self):
         move = False
@@ -172,7 +176,7 @@ class Grid():
         if move == True:
             self.add_number()
         else:
-            pass
+            self.up = False
 
     def move_down(self):
         move = False
@@ -219,3 +223,5 @@ class Grid():
 
         if move == True:
             self.add_number()
+        else:
+            self.down = False
