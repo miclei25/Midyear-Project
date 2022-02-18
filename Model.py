@@ -31,15 +31,20 @@ class Grid():
         else:
             self.grid[row][col] = 2
     
-    def move_left(self):
-        move = False
+    def move_horizontal(self):
+        self.move = False
+        self.can_move_horiz = False
 
         for r in range(4):
             prev_cell = None
-            for cell in range(len(self.grid[r])):
+            if self.move_left == True:
+                x = range(len(self.grid[r]))
+            elif self.move_right == True:
+                x = range(len(self.grid[r]) - 1, -1, -1)
+            
+            for cell in x:
 
                 if self.grid[r][cell] != None:
-                    
                     if prev_cell == None:
                         prev_cell = cell
                     
@@ -49,95 +54,60 @@ class Grid():
                         if self.grid[r][prev_cell] != None:
                             self.score += self.grid[r][prev_cell]
 
-                        for c in range(prev_cell, 4):
+                        if self.move_left == True:
+                            y = range(prev_cell, 4)
+                        elif self.move_right == True:
+                            y = range(prev_cell, -1, -1)
+
+                        for c in y:
                             if self.grid[r][c] == None:
                                 prev_cell = c
                                 break
-                        move = True
+                        self.move = True
 
                     else:
                         prev_cell = cell
             
             empty_cell = None
-            for cell in range(len(self.grid[r])):
-                for c in range(len(self.grid[r])):
+            for cell in x:
+                for c in x:
                     if self.grid[r][c] == None:
                         empty_cell = c
                         break
                 
                 if empty_cell != None:
-                    for c in range(empty_cell, 4):
+                    if self.move_left == True:
+                        z = range(empty_cell, 4)
+                    elif self.move_right == True:
+                        z = range(empty_cell, -1, -1)
+                    
+                    for c in z:
                         if self.grid[r][c] != None:
                             self.grid[r][empty_cell] = self.grid[r][c]
                             self.grid[r][c] = None
-                            move = True
+                            self.move = True
                             break
                 else:
                     break
         
-        if move == True:
+        if self.move == True:
             self.add_number()
-        else:
-            self.left = False
-
-    def move_right(self):
-        move = False
-        
-        for r in range(4):
-            prev_cell = None
-            for cell in range(len(self.grid[r]) - 1, -1, -1):
-
-                if self.grid[r][cell] != None:
-                    
-                    if prev_cell == None:
-                        prev_cell = cell
-                    
-                    elif self.grid[r][cell] == self.grid[r][prev_cell]:
-                        self.grid[r][prev_cell] *= 2
-                        self.grid[r][cell] = None
-                        if self.grid[r][prev_cell] != None:
-                            self.score += self.grid[r][prev_cell]
-
-                        for c in range(prev_cell, -1, -1):
-                            if self.grid[r][c] == None:
-                                prev_cell = c
-                                break
-                        move = True
-
-                    else:
-                        prev_cell = cell
-            
-            empty_cell = None
-            for cell in range(len(self.grid[r]) - 1, -1, -1):
-                for c in range(len(self.grid[r]) - 1, -1, -1):
-                    if self.grid[r][c] == None:
-                        empty_cell = c
-                        break
-                
-                if empty_cell != None:
-                    for c in range(empty_cell, -1, -1):
-                        if self.grid[r][c] != None:
-                            self.grid[r][empty_cell] = self.grid[r][c]
-                            self.grid[r][c] = None
-                            move = True
-                            break
-                else:
-                    break
-
-        if move == True:
-            self.add_number()
-        else:
-            self.right = False
-
-    def move_up(self):
-        move = False
+            self.can_move_horiz = True
+    
+    def move_vertical(self):
+        self.move = False
+        self.can_move_vert = False
 
         for c in range(4):
             prev_cell = None
-            for r in range(len(self.grid[c])):
+            if self.move_up == True:
+                x = range(len(self.grid[c]))
+            elif self.move_down == True:
+                x = range(len(self.grid[c]) - 1, -1, -1)
+
+            for r in x:
 
                 if self.grid[r][c] != None:
-
                     if prev_cell == None:
                         prev_cell = r
                     
@@ -147,81 +117,42 @@ class Grid():
                         if self.grid[prev_cell][c] != None:
                             self.score += self.grid[prev_cell][c]
 
+                        if self.move_up == True:
+                            y = range(prev_cell, 4)
+                        elif self.move_down == True:
+                            y = range(prev_cell, -1, -1)
+
                         for row in range(prev_cell, 4):
                             if self.grid[row][c] == None:
                                 prev_cell = row
                                 break
-                        move = True
+                        self.move = True
                     
                     else:
                         prev_cell = r
             
             empty_cell = None
-            for row in range(len(self.grid[c])):
-                for r in range(len(self.grid[c])):
+            for row in x:
+                for r in x:
                     if self.grid[r][c] == None:
                         empty_cell = r
                         break
                 
                 if empty_cell != None:
-                        for r in range(empty_cell, 4):
-                            if self.grid[r][c] != None:
-                                self.grid[empty_cell][c] = self.grid[r][c]
-                                self.grid[r][c] = None
-                                move = True
-                                break
-                else:
-                    break
-        
-        if move == True:
-            self.add_number()
-        else:
-            self.up = False
-
-    def move_down(self):
-        move = False
-        
-        for c in range(4):
-            prev_cell = None
-            for r in range(len(self.grid[c]) - 1, -1, -1):
-
-                if self.grid[r][c] != None:
-
-                    if prev_cell == None:
-                        prev_cell = r
-                    
-                    elif self.grid[r][c] == self.grid[prev_cell][c]:
-                        self.grid[r][c] *= 2
-                        self.grid[prev_cell][c] = None
-                        self.score += self.grid[r][c]
-
-                        for row in range(prev_cell, -1, -1):
-                            if self.grid[row][c] == None:
-                                prev_cell = row
-                                break
-                        move = True
-                    
-                    else:
-                        prev_cell = r
-            
-            empty_cell = None
-            for row in range(len(self.grid[c]) - 1, -1, -1):
-                for r in range(len(self.grid[c]) - 1, -1, -1):
-                    if self.grid[r][c] == None:
-                        empty_cell = r
-                        break
-                
-                if empty_cell != None and empty_cell != 0:
-                    for r in range(empty_cell, -1, -1):
+                    if self.move_up == True:
+                        z = range(empty_cell, 4)
+                    elif self.move_down == True:
+                        z = range(empty_cell, -1, -1)
+                        
+                    for r in z:
                         if self.grid[r][c] != None:
                             self.grid[empty_cell][c] = self.grid[r][c]
                             self.grid[r][c] = None
-                            move = True
+                            self.move = True
                             break
                 else:
                     break
-
-        if move == True:
+        
+        if self.move == True:
             self.add_number()
-        else:
-            self.down = False
+            self.can_move_vert = True

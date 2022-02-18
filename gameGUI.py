@@ -47,8 +47,8 @@ class Game_Screen(Frame):
         ).grid(row = 1, column = 3, sticky = W)
         
         self.imagelabels = []
-        for row in range(0,4):
-            for col in range(0,4):
+        for row in range(4):
+            for col in range(4):
                 image = PhotoImage(file="images/image0.gif")
                 piclabel = Label(self, image = image)
                 self.imagelabels.append(piclabel)
@@ -74,25 +74,33 @@ class Game_Screen(Frame):
         self.total_score.set(str(self.grid1.score))
 
     def up(self, event = None):
-        self.grid1.move_up()
+        self.grid1.move_up = True
+        self.grid1.move_vertical()
+        self.grid1.move_up = False
         self.display_grid()
         self.display_score()
         self.lose()
 
     def down(self, event = None):
-        self.grid1.move_down()
+        self.grid1.move_down = True
+        self.grid1.move_vertical()
+        self.grid1.move_down = False
         self.display_grid()
         self.display_score()
         self.lose()
 
     def left(self, event = None):
-        self.grid1.move_left()
+        self.grid1.move_left = True
+        self.grid1.move_horizontal()
+        self.grid1.move_left = False
         self.display_grid()   
         self.display_score()
-        self.lose() 
+        self.lose()
 
     def right(self, event = None):
-        self.grid1.move_right()
+        self.grid1.move_right = True
+        self.grid1.move_horizontal()
+        self.grid1.move_right = False
         self.display_grid()
         self.display_score()
         self.lose()
@@ -101,6 +109,6 @@ class Game_Screen(Frame):
         self.callback_on_exit()
     
     def lose(self):
-        if self.grid1.left == False and self.grid1.right == False and self.grid1.up == False and self.grid1.down == False:
+        if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False:
             # call the losing screen
             pass
