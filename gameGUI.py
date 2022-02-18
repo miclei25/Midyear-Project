@@ -79,7 +79,7 @@ class Game_Screen(Frame):
         self.grid1.move_up = False
         self.display_grid()
         self.display_score()
-        self.lose()
+        # self.lose()
 
     def down(self, event = None):
         self.grid1.move_down = True
@@ -87,7 +87,7 @@ class Game_Screen(Frame):
         self.grid1.move_down = False
         self.display_grid()
         self.display_score()
-        self.lose()
+        # self.lose()
 
     def left(self, event = None):
         self.grid1.move_left = True
@@ -95,7 +95,7 @@ class Game_Screen(Frame):
         self.grid1.move_left = False
         self.display_grid()   
         self.display_score()
-        self.lose()
+        # self.lose()
 
     def right(self, event = None):
         self.grid1.move_right = True
@@ -103,12 +103,12 @@ class Game_Screen(Frame):
         self.grid1.move_right = False
         self.display_grid()
         self.display_score()
-        self.lose()
+        # self.lose()
         
     def selected_exit(self):
         self.callback_on_exit()
     
-    def lose(self):
-        if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False:
-            # call the losing screen
-            pass
+    # def lose(self):
+    #     if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False:
+    #         # call the losing screen
+    #         pass
