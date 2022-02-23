@@ -94,52 +94,6 @@ class Grid():
             self.add_number()
             self.can_move_horiz = True
     
-    # def horizontal_shifting(self, r, cell, prev_cell):
-    #     if self.grid[r][cell] != None:
-    #                 if prev_cell == None:
-    #                     prev_cell = cell
-                    
-    #                 elif self.grid[r][cell] == self.grid[r][prev_cell]:
-    #                     self.grid[r][prev_cell] *= 2
-    #                     self.grid[r][cell] = None
-    #                     if self.grid[r][prev_cell] != None:
-    #                         self.score += self.grid[r][prev_cell]
-
-    #                     if self.move_left == True:
-    #                         self.y = range(prev_cell, 4)
-    #                     elif self.move_right == True:
-    #                         self.y = range(prev_cell, -1, -1)
-
-    #                     for c in self.y:
-    #                         if self.grid[r][c] == None:
-    #                             prev_cell = c
-    #                             break
-    #                     self.move = True
-
-    #                 else:
-    #                     prev_cell = cell
-
-    # def horizontal_merging(self, r, cell, empty_cell):
-    #     for c in self.x:
-    #         if self.grid[r][c] == None:
-    #             empty_cell = c
-    #             break
-                
-    #     if empty_cell != None:
-    #         if self.move_left == True:
-    #             self.z = range(empty_cell, 4)
-    #         elif self.move_right == True:
-    #                     self.z = range(empty_cell, -1, -1)
-                    
-    #         for c in self.z:
-    #             if self.grid[r][c] != None:
-    #                 self.grid[r][empty_cell] = self.grid[r][c]
-    #                 self.grid[r][c] = None
-    #                 self.move = True
-    #                 break
-    #     else:
-    #         return
-    
     def move_vertical(self):
         self.move = False
         self.can_move_vert = False
