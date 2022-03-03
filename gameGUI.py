@@ -35,22 +35,22 @@ class Game_Screen(Frame):
                 w.image = image
        
     def create_widgets(self):
-        #imageSmall = PhotoImage(file="images/2048title.gif")
-        #w = Label (self,
-        #                image = imageSmall, borderwidth=0
-                         #)
-        #w.photo = imageSmall
-        #w.grid (row = 0, column = 2, columnspan = 2)
-        #Label(self, text = "").grid(row = 1)
-        Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color
-             ).grid(row = 0, column = 2, columnspan = 2)
+        imageSmall = PhotoImage(file="images/2048title.gif")
+        w = Label (self,
+                        image = imageSmall, borderwidth=0
+                         )
+        w.photo = imageSmall
+        w.grid (row = 0, column = 1, columnspan = 4)
+        #Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color
+        #     ).grid(row = 0, column = 2, columnspan = 2)
 
-        #self.total_score = 0
+        self.total_score = 0
         self.total_score = StringVar()
         self.total_score.set("0")
         Label(self, text = "  Score:", font = "Georgia 20", fg = "Hot Pink", bg = bg_color).grid(row = 1, column = 2, sticky = E)
         self.update_score = Label(self, textvariable = self.total_score, font = "Georgia 20", fg = "Hot Pink", bg = bg_color
         ).grid(row = 1, column = 3, sticky = W)
+        Label(self,text = "", bg = bg_color).grid(row = 2, column = 1)
         
         self.imagelabels = []
         for row in range(4):
@@ -59,7 +59,7 @@ class Game_Screen(Frame):
                 piclabel = Label(self, image = image)
                 self.imagelabels.append(piclabel)
                 piclabel.photo = image
-                piclabel.grid(row = row + 2, column = col + 1)
+                piclabel.grid(row = row + 3, column = col + 1)
                 
         Label(self, text = "", bg = bg_color).grid(row = 8)
         Button(self, text = "   UP ", font = "Helvetica 10 bold", fg = "DeepPink", command = self.up
@@ -86,6 +86,11 @@ class Game_Screen(Frame):
         self.display_grid()
         self.display_score()
         # self.lose()
+
+    #def losing_screen(self):
+        #for row in range(4):
+            #for col in range(4):
+                #if self.grid1.grid[row][col] == self.grid1.grid[row+1][col] or self.grid1.grid[row][col] == self.grid1.grid[row-1][]
 
     def down(self, event = None):
         self.grid1.move_down = True
