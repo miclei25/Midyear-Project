@@ -35,7 +35,13 @@ class Game_Screen(Frame):
                 w.image = image
        
     def create_widgets(self):
-        
+        #imageSmall = PhotoImage(file="images/2048title.gif")
+        #w = Label (self,
+        #                image = imageSmall, borderwidth=0
+                         #)
+        #w.photo = imageSmall
+        #w.grid (row = 0, column = 2, columnspan = 2)
+        #Label(self, text = "").grid(row = 1)
         Label(self, text = "2048", font = "Georgia 30 bold", fg = "Hot Pink", bg = bg_color
              ).grid(row = 0, column = 2, columnspan = 2)
 
