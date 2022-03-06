@@ -121,13 +121,21 @@ class Game_Screen(Frame):
         self.callback_on_exit()
 
     def losing_screen(self):
-         if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False:
+        for row in range(4):
+            for col in range(4):
+                if self.grid1.grid[row][col] != None:
+                    empty = False
+                else:
+                    empty = True
+                    break
+                    
+        if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False and empty == False:
             image = PhotoImage(file="images/iwang.gif")
             piclabel = Label(self, image = image, bg = "Hot Pink", borderwidth = "50px")
             self.imagelabels.append(piclabel)
             piclabel.photo = image
             piclabel.grid(row = 3, column = 1, columnspan = 4, rowspan = 4)
-            Label(self, text = "You Lose!", bg = "Hot Pink", font = "Helvetica 24", fg = "white").grid(row = 6, column = 2, columnspan = 2)
+            Label(self, text = "You Lose!", bg = "Hot Pink", font = "Georgia 24", fg = "white").grid(row = 6, column = 2, columnspan = 2)
 
 
 
