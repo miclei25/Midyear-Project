@@ -19,6 +19,11 @@ class Game_Screen(Frame):
         master.bind("<Up>", self.up)
         master.bind("<Down>", self.down)
 
+        self.grid1.move_up = None
+        self.grid1.move_down = None
+        self.grid1.move_right = None
+        self.grid1.move_left = None
+
     def setup_grid(self):
         self.grid1 = Grid()
 
