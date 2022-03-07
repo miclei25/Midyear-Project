@@ -23,6 +23,10 @@ class Game_Screen(Frame):
         self.grid1.move_down = None
         self.grid1.move_right = None
         self.grid1.move_left = None
+        self.grid1.can_move_horiz = None
+        self.grid1.can_move_vert = None
+        self.pressed_vert = False
+        self.pressed_horiz = False
 
     def setup_grid(self):
         self.grid1 = Grid()
@@ -81,74 +85,74 @@ class Game_Screen(Frame):
         ).grid(row = 11, column = 1, columnspan = 4)
         Label(self, text = "", bg = bg_color).grid(row = 12)
 
-
-
     def display_score(self):
         self.total_score.set(str(self.grid1.score))
 
     def up(self, event = None):
+        self.pressed_vert = True
         self.grid1.move_up = True
         self.grid1.move_vertical()
         self.grid1.move_up = False
-        self.display_grid()
-        self.display_score()
-        self.losing_screen()
-        # self.lose()
+        self.after_button()
 
     def down(self, event = None):
+        self.pressed_vert = True
         self.grid1.move_down = True
         self.grid1.move_vertical()
         self.grid1.move_down = False
-        self.display_grid()
-        self.display_score()
-        self.losing_screen()
-        # self.lose()
+        self.after_button()
 
     def left(self, event = None):
+        self.pressed_horiz = True
         self.grid1.move_left = True
         self.grid1.move_horizontal()
         self.grid1.move_left = False
-        self.display_grid()   
-        self.display_score()
-        self.losing_screen()
-        # self.lose()
+        self.after_button()
 
     def right(self, event = None):
+        self.pressed_horiz = True
         self.grid1.move_right = True
         self.grid1.move_horizontal()
         self.grid1.move_right = False
+        self.after_button()
+    
+    def after_button(self):
         self.display_grid()
         self.display_score()
         self.losing_screen()
-        # self.lose()
         
     def selected_exit(self):
         self.callback_on_exit()
 
     def losing_screen(self):
-        for row in range(4):
-            for col in range(4):
-                if self.grid1.grid[row][col] != None:
-                    empty = False
+        self.no_moves = False
+        if self.pressed_vert == False:
+            if self.grid1.can_move_horiz == False:
+                self.grid2 = self.grid1
+                self.grid2.move_vertical()
+                if self.grid2.can_move_vert == False:
+                    self.no_moves = True
                 else:
-                    empty = True
-                    break
-                    
-        if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False and empty == False:
+                    return
+            else:
+                return
+        elif self.pressed_horiz == False:
+            if self.grid1.can_move_vert == False:
+                self.grid2 = self.grid1
+                self.grid2.move_horizontal()
+                if self.grid2.can_move_horiz == False:
+                    self.no_moves = True
+                else:
+                    return
+            else:
+                return
+        if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False:
+            self.no_moves = True
+        
+        if self.no_moves == True:
             image = PhotoImage(file="images/iwang.gif")
             piclabel = Label(self, image = image, bg = "Hot Pink", borderwidth = "50px")
             self.imagelabels.append(piclabel)
             piclabel.photo = image
             piclabel.grid(row = 3, column = 1, columnspan = 4, rowspan = 4)
             Label(self, text = "You Lose!", bg = "Hot Pink", font = "Georgia 24", fg = "white").grid(row = 6, column = 2, columnspan = 2)
-
-
-
-    #for row in range(4):
-        #for col in range(4):
-            #if self.grid1.grid[row][col] == self.grid1.grid[row+1][col] or self.grid1.grid[row][col] == self.grid1.grid[row-1][]
-    
-    # def lose(self):
-    #     if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False:
-    #         # call the losing screen
-    #         pass
