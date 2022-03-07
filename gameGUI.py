@@ -146,10 +146,19 @@ class Game_Screen(Frame):
                     return
             else:
                 return
+        
         if self.grid1.can_move_horiz == False and self.grid1.can_move_vert == False:
             self.no_moves = True
         
-        if self.no_moves == True:
+        for row in range(4):
+            for col in range(4):
+                if self.grid1.grid[row][col] != None:
+                    empty = False
+                else:
+                    empty = True
+                    break
+
+        if self.no_moves == True and empty == False:
             image = PhotoImage(file="images/iwang.gif")
             piclabel = Label(self, image = image, bg = "Hot Pink", borderwidth = "50px")
             self.imagelabels.append(piclabel)
