@@ -14,10 +14,16 @@ class Screen_Opening(Frame):
 
         #title
         Label(self, text = "\n\n", bg = bg_color).grid(row = 0)
-        Label(self, text = "2048", font = "Georgia 45 bold", fg = "Hot Pink", bg = bg_color).grid(row = 3, column = 1)
+        imageSmall = PhotoImage(file="images/2048title.gif")
+        w = Label (self,
+                        image = imageSmall, borderwidth=0
+                         )
+        w.photo = imageSmall
+        w.grid (row = 3, column = 1)
+        #Label(self, text = "2048", font = "Georgia 45 bold", fg = "Hot Pink", bg = bg_color).grid(row = 3, column = 1)
         Label(self, text = "", bg = bg_color).grid(row = 4)
         Label(self, text = "How to Play:\n\nStarting with two tiles on the grid, the lowest number being 2,\nmerge tiles using arrows on your keyboard.\nTry to reach 2048!", 
-                    font = "Helvetica 15 italic", fg = "MediumVioletRed", bg = bg_color
+                    font = "Helvetica 15", fg = "Hot Pink", bg = bg_color
                     ).grid(row = 5, column = 0, columnspan = 3)
         Label(self, text = "", bg = bg_color).grid(row = 6)
         Button(self, text = "Press to Play", 
